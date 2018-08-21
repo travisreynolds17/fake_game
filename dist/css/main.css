@@ -47,10 +47,10 @@
   .nav .nav-branding.show {
     transform: translate3d(0, 0, 0); }
   .nav-item {
-    color: white;
+    color: #f2f7ff;
     float: left;
     list-style: none;
-    background: #ccc;
+    background: #979797;
     border: 2px solid black;
     padding: 5px;
     text-align: center;
@@ -84,6 +84,19 @@ h6 {
   margin: 0;
   padding: 0; }
 
+.footer {
+  background: black;
+  font-size: 1rem;
+  color: #979797;
+  text-align: center;
+  margin: auto;
+  padding: 5px;
+  width: 100%; }
+
+main {
+  min-height: 95vh;
+  overflow: hidden; }
+
 /* ----------------------------------------------------------
 -------------------------------------------------------------
 Landing Page
@@ -93,12 +106,18 @@ Landing Page
   transition: all 1s ease-out;
   text-align: center; }
   #landing h1 {
-    color: #fff;
+    color: #eff5ff;
     font-weight: 700;
     font-size: 4rem;
     text-transform: uppercase; }
   #landing h2 {
-    color: #ccc; }
+    color: #979797; }
+  #landing p {
+    background: #bcd5ec;
+    width: 50%;
+    margin: 2vh auto;
+    padding: 5px;
+    border-top: 3px solid white; }
   #landing.show {
     transform: translate3d(0, 35%, 0); }
 
