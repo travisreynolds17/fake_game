@@ -5,6 +5,7 @@ let navButton = document.querySelector(".nav-button");
 let navBranding = document.querySelector(".nav-branding");
 let navMenu = document.querySelector(".nav-menu");
 let navItem = document.querySelectorAll(".nav-item");
+let main = document.querySelector("#landing");
 
 // set initial menu state
 let showMenu = false;
@@ -21,6 +22,7 @@ function toggleMenu() {
     navMenu.classList.add("show");
     navMain.classList.add("show");
     navItem.forEach(item => item.classList.add("show"));
+    main.classList.add("show");
     //Set current state of menu
     showMenu = true;
   } else {
@@ -29,6 +31,7 @@ function toggleMenu() {
     navMenu.classList.remove("show");
     navMain.classList.remove("show");
     navItem.forEach(item => item.classList.remove("show"));
+    main.classList.remove("show");
     // set menu state
     showMenu = false;
   }
