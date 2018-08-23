@@ -76,6 +76,9 @@ html {
   height: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
 
+body {
+  background: linear-gradient(#141414, #323232); }
+
 .bg-img {
   background-image: url("/dist/images/background.jpg");
   background-size: cover;
@@ -147,9 +150,66 @@ Landing Page
 
 /* ----------------------------------------------------------
 -------------------------------------------------------------
-Login Page
+About Page
 *------------------------------------------------------------
 ------------------------------------------------------------*/
+.about {
+  width: 90%;
+  max-width: 100%;
+  margin: 1rem auto;
+  display: grid;
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
+  align-items: center;
+  grid-template-areas: "branding head head head head head" "branding head head head head head" "screen screen screen screen screen screen"; }
+  .about.show {
+    transform: translate3d(0, 35%, 0);
+    transition: all 0.5s ease-out; }
+  .about .heading {
+    grid-area: head; }
+    .about .heading h1 {
+      color: #eff5ff;
+      font-size: 5rem;
+      text-align: left; }
+    .about .heading h2 {
+      color: #636363;
+      text-align: left;
+      font-size: 2rem; }
+  .about .screenshots {
+    grid-area: screen;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3rem; }
+    .about .screenshots .item {
+      overflow: hidden;
+      padding: 10px;
+      border-top: 3px solid #636363; }
+      .about .screenshots .item h3 {
+        font-size: 2rem;
+        text-align: center; }
+        .about .screenshots .item h3.orange {
+          color: #e46f2b; }
+        .about .screenshots .item h3.purple {
+          color: #c52be4; }
+      .about .screenshots .item img {
+        border: 2px solid #eff5ff;
+        border-radius: 5%;
+        object-fit: cover;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        height: 30vh;
+        width: 100%; }
+  .about .branding {
+    grid-area: branding;
+    background: url("/dist/images/water-glass.jpg") no-repeat;
+    background-size: cover;
+    border-radius: 75%;
+    height: 25vh;
+    width: 25vh;
+    margin: 0 auto;
+    border: 3px solid #636363;
+    padding: 5px; }
+
 /* ----------------------------------------------------------
 -------------------------------------------------------------
 Contact Page

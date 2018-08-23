@@ -5,7 +5,7 @@ let navButton = document.querySelector(".nav-button");
 let navBranding = document.querySelector(".nav-branding");
 let navMenu = document.querySelector(".nav-menu");
 let navItem = document.querySelectorAll(".nav-item");
-let main = document.querySelector("#landing");
+let main = document.querySelector(".main");
 
 // set initial menu state
 let showMenu = false;
@@ -35,4 +35,30 @@ function toggleMenu() {
     // set menu state
     showMenu = false;
   }
+}
+
+// JS for about page: Hidden message on mouseover
+
+let aboutCreepy = document.getElementById("about-creepy");
+
+// listeners
+aboutCreepy.addEventListener("mouseenter", creepyOn);
+aboutCreepy.addEventListener("mouseleave", creepyOff);
+
+// set initial message state
+let isCreepy = false;
+
+// changes hospitality to rest of your life on mouseover. TODO: Roll these two into one toggle function
+function creepyOn() {
+  console.log(isCreepy);
+  if (!isCreepy) {
+    isCreepy = true;
+    aboutCreepy.innerHTML = "rest of your life";
+  }
+}
+
+function creepyOff() {
+  console.log("Why is this not working");
+  isCreepy = false;
+  aboutCreepy.innerHTML = "hospitality";
 }
