@@ -112,6 +112,11 @@ a {
   color: inherit;
   text-decoration: none; }
 
+.header {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #eff5ff;
+  font-size: 8vh; }
+
 /* ----------------------------------------------------------
 -------------------------------------------------------------
 Landing Page
@@ -169,7 +174,7 @@ About Page
   align-items: center;
   grid-template-areas: "branding head head head head head" "branding head head head head head" "screen screen screen screen screen screen"; }
   .about.show {
-    transform: translate3d(0, 2%, 0);
+    transform: translate3d(0, 0, 0);
     transition: all 0.5s ease-out; }
   .about .heading {
     grid-area: head; }
@@ -229,3 +234,41 @@ Contact Page
 Download Page
 *------------------------------------------------------------
 ------------------------------------------------------------*/
+/* ----------------------------------------------------------
+-------------------------------------------------------------
+Staff Page
+*------------------------------------------------------------
+------------------------------------------------------------*/
+.staff-item {
+  padding: 5px;
+  color: #636363;
+  background: #eff5ff;
+  margin-bottom: 4vh;
+  width: 95%;
+  border-radius: 5%; }
+  .staff-item .name {
+    grid-area: "name"; }
+  .staff-item .title {
+    grid-area: "title"; }
+  .staff-item .bio {
+    grid-area: "bio"; }
+  .staff-item img {
+    grid-area: "pic";
+    background: url("/dist/images/water-glass.jpg");
+    width: 100%; }
+
+@media screen and (max-width: 500px) {
+  display: grid;
+  grid-template-columns: 1fr;
+  .landing .social {
+    grid-gap: 2rem;
+    float: left;
+    border: none; }
+  .about {
+    display: grid;
+    grid-template-areas: "branding" "head" "screen"; }
+    .about .screenshots {
+      grid-template-columns: 2fr 1fr; }
+  .staff .staff-item {
+    display: grid;
+    grid-area: "title title pic" "name name pic" "bio bio bio"; } }
