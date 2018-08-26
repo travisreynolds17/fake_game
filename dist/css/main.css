@@ -8,6 +8,7 @@
   top: 20px;
   right: 20px;
   cursor: pointer;
+  z-index: 4;
   transition: all 0.5s ease-out; }
   .nav-button .btn-line {
     background: #aaa;
@@ -27,30 +28,34 @@
         transform: rotate(1125deg) translate(0, -12px); }
 
 .nav {
+  transition: all 0.5s ease-out;
   visibility: hidden;
   top: 0;
-  width: 90%; }
+  position: absolute;
+  transform: translateX(100%);
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+  background: rgba(20, 20, 20, 0.5); }
   .nav.show {
-    visibility: visible; }
+    visibility: visible;
+    transform: translate3d(0, 0, 0); }
   .nav .nav-menu,
   .nav .nav-branding {
-    height: 100%;
-    overflow: hidden; }
+    height: 4vh; }
   .nav .nav-menu {
-    transform: translate3d(-100%, 0, 0);
+    transition: all 0.5s ease-out;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     margin: 0 auto; }
-    .nav .nav-menu.show {
-      transition: all 0.5s ease-out;
-      transform: translate3d(0, 100%, 0); }
   .nav .nav-branding.show {
     transform: translate3d(0, 0, 0); }
   .nav-item {
     color: #eff5ff;
     float: left;
     list-style: none;
-    border-bottom: 4px solid #d7a6e4;
     padding: 5px;
     text-align: center;
     font-size: 1.5rem;
@@ -72,13 +77,21 @@
 
 body,
 html {
-  width: 100%;
   height: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
 
+html {
+  width: 100%; }
+
 body {
   background: linear-gradient(#141414, #323232);
-  background-repeat: repeat-y; }
+  width: 99%; }
+
+.content-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%; }
 
 .bg-img {
   background-image: url("/dist/images/background.jpg");
@@ -106,7 +119,9 @@ h6 {
   width: 100%; }
 
 main {
-  min-height: 95vh; }
+  min-height: 95vh;
+  width: 95%;
+  margin: 0 auto; }
 
 a {
   color: inherit;
@@ -155,8 +170,6 @@ Landing Page
         #main .landing .social i:hover {
           transition: all 0.5s ease-out;
           color: #d7a6e4; }
-  #main.show {
-    transform: translate3d(0, 35%, 0); }
 
 /* ----------------------------------------------------------
 -------------------------------------------------------------
@@ -173,9 +186,6 @@ About Page
   grid-row-gap: 2rem;
   align-items: center;
   grid-template-areas: "branding head head head head head" "branding head head head head head" "screen screen screen screen screen screen"; }
-  .about.show {
-    transform: translate3d(0, 0, 0);
-    transition: all 0.5s ease-out; }
   .about .heading {
     grid-area: head; }
     .about .heading h1 {
@@ -239,27 +249,42 @@ Download Page
 Staff Page
 *------------------------------------------------------------
 ------------------------------------------------------------*/
+.staff {
+  display: grid; }
+
 .staff-item {
   padding: 5px;
   color: #636363;
   background: #eff5ff;
-  margin-bottom: 4vh;
+  margin: 4vh 0;
   width: 95%;
-  border-radius: 5%; }
+  border-radius: 5%;
+  display: grid;
+  grid-template-areas: "title title pic" "name name pic" "bio bio bio"; }
   .staff-item .name {
-    grid-area: "name"; }
+    grid-area: name; }
   .staff-item .title {
-    grid-area: "title"; }
+    grid-area: title; }
   .staff-item .bio {
-    grid-area: "bio"; }
+    grid-area: bio; }
   .staff-item img {
-    grid-area: "pic";
+    grid-area: pic;
     background: url("/dist/images/water-glass.jpg");
     width: 100%; }
 
+@media screen and (min-width: 1171px) {
+  .staff {
+    grid-template-columns: 1fr 1fr 1fr 1fr; } }
+
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+  .staff {
+    grid-template-columns: 1fr 1fr 1fr; } }
+
+@media screen and (max-width: 768px) {
+  .staff {
+    grid-template-columns: 1fr 1fr; } }
+
 @media screen and (max-width: 500px) {
-  display: grid;
-  grid-template-columns: 1fr;
   .landing .social {
     grid-gap: 2rem;
     float: left;
@@ -269,6 +294,5 @@ Staff Page
     grid-template-areas: "branding" "head" "screen"; }
     .about .screenshots {
       grid-template-columns: 2fr 1fr; }
-  .staff .staff-item {
-    display: grid;
-    grid-area: "title title pic" "name name pic" "bio bio bio"; } }
+  .staff {
+    grid-template-columns: 1fr; } }
