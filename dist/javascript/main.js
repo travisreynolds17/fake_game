@@ -72,3 +72,39 @@ if (aboutPage == !null) {
     aboutCreepy.innerHTML = "hospitality";
   }
 } // end of about page check
+
+// JS for staff page
+
+const staffName = document.querySelectorAll(".name");
+const bio = document.querySelectorAll(".bio");
+// set initial bio visibilty state
+let showBio = false;
+
+// Our goal is to make clicking the title cause the person's bio to drop down.
+
+function attachId() {
+  for (var i = 0; i < bio.length; i++) {
+    staffName[i].id = i.toString();
+    var x = "bio" + i.toString();
+    bio[i].id = x;
+  }
+}
+
+staffName.forEach(item => item.addEventListener("click", toggleBio));
+
+function toggleBio() {
+  // eventually move the id designation to page load. We want this to be able to support as many staff members as necessary without hard coding.
+  attachId();
+
+  // get bio element corresponding to clicked title
+  var x = "bio" + this.id.toString();
+  var y = document.getElementById(x);
+
+  if (!showBio) {
+    y.classList.add("show");
+    showBio = true;
+  } else {
+    y.classList.remove("show");
+    showBio = false;
+  }
+} // end of toggleBio
