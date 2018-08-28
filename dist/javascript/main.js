@@ -77,15 +77,19 @@ if (aboutPage == !null) {
 
 const staffName = document.querySelectorAll(".name");
 const bio = document.querySelectorAll(".bio");
+const staffItem = document.querySelectorAll(".staff-item");
 
 // Our goal is to make clicking the title cause the person's bio to drop down.
 
 // attaches a CSS ID to each element with .name or .bio class. This is so we can determine which name was clicked on the page and then reveal the corresponding bio.
 function attachId() {
   for (var i = 0; i < bio.length; i++) {
+    var x = "bio" + i.toString(); // concatenate bio id corresponding to id
+    var y = "item" + i.toString(); // '' '' '' staff-item
+    staffItem[i].id = y;
     staffName[i].id = i.toString(); //attach id to element
     staffName[i].showMenu = false; // add toggle property to element
-    var x = "bio" + i.toString(); // concatenate bio id corresponding to id
+
     bio[i].id = x; // attach bio id
   }
 }
@@ -100,12 +104,16 @@ function toggleBio() {
   // get bio element corresponding to clicked title
   var x = "bio" + this.id.toString();
   var y = document.getElementById(x);
+  var z = "item" + this.id.toString();
+  var n = document.getElementById(z);
 
   if (!this.showBio) {
     y.classList.add("show");
+    n.classList.add("show");
     this.showBio = true;
   } else {
     y.classList.remove("show");
+    n.classList.remove("show");
     this.showBio = false;
   }
 } // end of toggleBio

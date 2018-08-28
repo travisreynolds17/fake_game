@@ -102,15 +102,6 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: overlay; }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0; }
-
 .footer {
   background: black;
   font-size: 1rem;
@@ -258,8 +249,7 @@ Staff Page
   padding: 5px;
   color: #636363;
   background: #eff5ff;
-  width: 95%;
-  border-radius: 5%;
+  width: 100%;
   display: grid;
   grid-template-areas: "title title pic" "name name pic" "bio bio bio"; }
   .staff-item .name {
@@ -286,6 +276,10 @@ Staff Page
     grid-template-columns: 1fr 1fr; } }
 
 @media screen and (max-width: 500px) {
+  .content-wrapper {
+    margin: 0; }
+  .header {
+    color: #000000; }
   .bg-img {
     background: #ffffff;
     background-image: none; }
@@ -300,17 +294,28 @@ Staff Page
       grid-template-columns: 2fr 1fr; }
   .staff {
     grid-template-columns: 1fr;
-    row-gap: 4vh; }
+    width: 100%; }
   .staff-item {
-    background: none; }
+    transition: all 0.5s ease-out;
+    min-height: 15vh; }
+    .staff-item:nth-of-type(odd) {
+      background: #eff5ff; }
+    .staff-item:nth-of-type(even) {
+      background: #636363;
+      color: #eff5ff; }
+    .staff-item.show {
+      transition: all 0.5s ease-out;
+      background: pink; }
     .staff-item .bio {
       transition: all 0.5s ease-out;
       transform: scale(0);
       overflow: hidden;
-      height: 0; }
+      height: 0;
+      border-radius: 0; }
       .staff-item .bio.show {
+        color: black;
         transition: all 0.5s ease-out;
         transform: scale(1);
         height: 100%;
         margin-top: 1rem;
-        border-bottom: 2px solid black; } }
+        margin-bottom: 1rem; } }

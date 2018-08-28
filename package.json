@@ -13,5 +13,8 @@
     "emmet": "^1.6.3",
     "gh-pages": "^1.2.0",
     "node-sass": "^4.9.3"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
   }
 }
