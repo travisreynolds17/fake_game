@@ -78,6 +78,7 @@ if (aboutPage == !null) {
 const staffName = document.querySelectorAll(".name");
 const bio = document.querySelectorAll(".bio");
 const staffItem = document.querySelectorAll(".staff-item");
+const moreButton = document.querySelectorAll(".more");
 
 // Our goal is to make clicking the title cause the person's bio to drop down.
 
@@ -85,35 +86,43 @@ const staffItem = document.querySelectorAll(".staff-item");
 function attachId() {
   for (var i = 0; i < bio.length; i++) {
     var x = "bio" + i.toString(); // concatenate bio id corresponding to id
-    var y = "item" + i.toString(); // '' '' '' staff-item
-    staffItem[i].id = y;
-    staffName[i].id = i.toString(); //attach id to element
-    staffName[i].showMenu = false; // add toggle property to element
+    var y = "name" + i.toString(); // '' '' '' staff-item
+    var w = "item" + i.toString(); // '' '' '' .more spans
 
+    staffItem[i].id = w;
+    staffName[i].id = y; //attach id to element
     bio[i].id = x; // attach bio id
+    moreButton[i].id = i.toString();
+    moreButton[i].showMenu = false; // add toggle property to element
   }
 }
 
 // attach click listeners to name elements
-staffName.forEach(item => item.addEventListener("click", toggleBio));
+moreButton.forEach(item => item.addEventListener("click", toggleBio));
 
 function toggleBio() {
   // eventually move the id designation to page load. We want this to be able to support as many staff members as necessary without hard coding.
   attachId();
 
   // get bio element corresponding to clicked title
+  var m = "name" + this.id.toString();
+  var l = document.getElementById(m); // get numbered spans with .more class
   var x = "bio" + this.id.toString();
-  var y = document.getElementById(x);
+  var y = document.getElementById(x); // ''   ''  ''  ''  ''  '' .bio class
   var z = "item" + this.id.toString();
-  var n = document.getElementById(z);
+  var n = document.getElementById(z); // '' '' '' staff item
 
   if (!this.showBio) {
     y.classList.add("show");
     n.classList.add("show");
+    l.classList.add("show");
     this.showBio = true;
+    this.innerHTML = "X";
   } else {
     y.classList.remove("show");
     n.classList.remove("show");
+    l.classList.remove("show");
     this.showBio = false;
+    this.innerHTML = "...";
   }
 } // end of toggleBio
