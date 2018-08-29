@@ -38,7 +38,7 @@
   z-index: 3;
   margin: 0;
   padding: 0;
-  background: rgba(20, 20, 20, 0.5); }
+  background: rgba(20, 20, 20, 0.9); }
   .nav.show {
     visibility: visible;
     transform: translate3d(0, 0, 0); }
@@ -64,6 +64,12 @@
     .nav-item:hover {
       color: #d7a6e4; }
 
+.top-nav {
+  background: white;
+  height: 100%;
+  font-family: cursive;
+  font-size: 3em; }
+
 .btn {
   border-radius: 10%;
   padding: 5px 2px;
@@ -75,11 +81,12 @@
 * {
   box-sizing: border-box;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  list-style: none; }
 
 body,
 html {
-  height: 100%;
+  min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
 
 html {
@@ -93,7 +100,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  margin: 0 auto; }
+  margin: 0; }
 
 .bg-img {
   background-image: url("/dist/images/background.jpg");
@@ -114,7 +121,7 @@ body {
 main {
   min-height: 95vh;
   width: 95%;
-  margin: 0 auto; }
+  margin: 0; }
 
 h1 {
   margin: 3vh 0; }
@@ -130,6 +137,21 @@ header {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #eff5ff;
   font-size: 8vh; }
+
+.btn {
+  margin: auto;
+  cursor: pointer;
+  padding: 5px;
+  transition: all 0.5s ease-out; }
+  .btn.btn-light {
+    color: black;
+    background: #eff5ff; }
+    .btn.btn-light:hover {
+      background: #d7a6e4; }
+  .btn.btn-dark {
+    background: #636363; }
+    .btn.btn-dark:hover {
+      background: #d7a6e4; }
 
 /* ----------------------------------------------------------
 -------------------------------------------------------------
@@ -154,15 +176,13 @@ Landing Page
       margin: 2vh auto;
       padding: 5px;
       border-top: 3px solid #e3e3e3; }
-    #main .landing .btn {
-      margin: auto; }
     #main .landing .social {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      width: 40%;
+      width: 100%;
       margin: 10px auto;
       padding: 1rem;
-      border-top: 3px solid #d7a6e4; }
+      border-top: 1px solid #d7a6e4; }
       #main .landing .social i {
         color: #eff5ff;
         font-size: 3rem; }
@@ -222,7 +242,7 @@ About Page
         width: 100%; }
   .about .branding {
     grid-area: branding;
-    background: url("/dist/images/water-glass.jpg") no-repeat;
+    background: url("/dist/images/banner-lily.jpg") no-repeat;
     background-size: cover;
     border-radius: 75%;
     height: 25vh;
@@ -243,6 +263,41 @@ Contact Page
 Download Page
 *------------------------------------------------------------
 ------------------------------------------------------------*/
+.downloadPage {
+  min-height: 100vh;
+  width: 100%;
+  color: #eff5ff;
+  text-align: center; }
+  .downloadPage .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%; }
+    .downloadPage .buttons a {
+      width: 100%;
+      border-radius: 0; }
+  .downloadPage h4 {
+    font-size: 1.8rem;
+    margin: 2vh 0 1vh 0; }
+  .downloadPage p {
+    width: 90%;
+    margin: 0 auto 2vh auto; }
+  .downloadPage .banner {
+    object-fit: cover;
+    width: 100%;
+    margin-bottom: 0; }
+
+.gameSpecs {
+  font-size: 0.9rem;
+  border: 1px solid rgba(188, 213, 236, 0.8);
+  color: #bcd5ff;
+  padding: 15px;
+  margin: 10px;
+  text-align: left; }
+  .gameSpecs h4 {
+    margin: 0 0 2vh 0; }
+  .gameSpecs .category {
+    font-weight: 700; }
+
 /* ----------------------------------------------------------
 -------------------------------------------------------------
 Staff Page
@@ -281,13 +336,22 @@ Staff Page
   .staff {
     grid-template-columns: 1fr 1fr; } }
 
+/* 00000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000
+
+SMALL: Phone size
+
+00000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000*/
 @media screen and (max-width: 500px) {
+  body {
+    background: #221920; }
   .content-wrapper {
     margin: 0; }
   .header {
     color: #000000; }
   .bg-img {
-    background: #ffffff;
+    background: #221920;
     background-image: none; }
   .landing .social {
     grid-gap: 2rem;
@@ -295,29 +359,38 @@ Staff Page
     border: none; }
   .about {
     display: grid;
-    grid-template-areas: "branding" "head" "screen"; }
+    grid-template-areas: "branding" "head" "screen";
+    padding: 0;
+    margin: 0;
+    width: 100%; }
+    .about #main {
+      margin: 0;
+      width: 100%; }
     .about .screenshots {
-      grid-template-columns: 2fr 1fr; }
+      grid-template-columns: 1fr; }
   .staff {
     grid-template-columns: 1fr;
     width: 100%; }
   h1,
   .header {
-    font-size: 7vh; }
+    font-size: 7vh;
+    color: #eff5ff; }
   .staff-item {
     transition: all 0.5s ease-out;
-    min-height: 15vh; }
-    .staff-item:nth-of-type(odd) {
-      background: #eff5ff; }
-      .staff-item:nth-of-type(odd) .more {
-        color: black; }
-    .staff-item:nth-of-type(even) {
-      background: #636363;
-      color: #eff5ff; }
-      .staff-item:nth-of-type(even) .more {
-        color: white; }
+    background: none;
+    min-height: 15vh;
+    padding: 0;
+    margin-bottom: 1px;
+    border-bottom: 1px solid #eff5ff; }
     .staff-item.show {
-      background: pink; }
+      background: #d7a6e4;
+      padding: 10px; }
+    .staff-item .name {
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      font-size: 1.5rem;
+      color: #e46f2b; }
+      .staff-item .name.show {
+        color: black; }
     .staff-item .bio {
       transform: scale(0);
       overflow: hidden;
