@@ -182,10 +182,10 @@ Landing Page
     #main .landing .social {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      width: 100%;
-      margin: 10px auto;
+      width: 90%;
+      margin: 0 auto;
       padding: 1rem;
-      border-top: 1px solid #d7a6e4; }
+      align-items: center; }
       #main .landing .social i {
         color: #eff5ff;
         font-size: 3rem; }
@@ -400,6 +400,9 @@ Staff Page
     background: none;
     height: 0;
     margin: 2vh; }
+  .about .screenshots {
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
   .downloadPage {
     margin: 0 auto;
     width: 90%;
@@ -469,6 +472,7 @@ Staff Page
     .about .heading h1 {
       font-size: 400%; }
     .about .screenshots {
+      width: 100%;
       display: block; }
       .about .screenshots .item {
         display: grid;
@@ -502,8 +506,7 @@ SMALL: Phone size
     background-image: none; }
   .landing .social {
     grid-gap: 2rem;
-    float: left;
-    border: none; }
+    border: 0; }
   .about {
     display: grid;
     grid-template-areas: "branding" "head" "screen";
