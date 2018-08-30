@@ -153,6 +153,9 @@ header {
     .btn.btn-dark:hover {
       background: #d7a6e4; }
 
+.nav-logo {
+  visibility: visible; }
+
 /* ----------------------------------------------------------
 -------------------------------------------------------------
 Landing Page
@@ -198,8 +201,8 @@ About Page
 .about {
   transition: all 0.5s ease-out;
   width: 90%;
-  max-width: 100%;
-  margin: 1rem auto;
+  margin: 0 auto;
+  padding: 10px;
   display: grid;
   grid-column-gap: 1rem;
   grid-row-gap: 2rem;
@@ -285,6 +288,10 @@ Download Page
     object-fit: cover;
     width: 100%;
     margin-bottom: 0; }
+  .downloadPage .banner-secondary {
+    object-fit: cover;
+    height: 0;
+    visibility: hidden; }
 
 .gameSpecs {
   font-size: 0.9rem;
@@ -325,45 +332,154 @@ Staff Page
     width: 100%; }
 
 @media screen and (min-width: 1171px) {
+  .top-nav {
+    background: none;
+    height: 0;
+    margin: 2vh; }
+  .nav-logo {
+    visibility: hidden; }
+  .downloadPage {
+    margin: 0 auto;
+    width: 90%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 10px; }
+    .downloadPage .header {
+      grid-row: 1;
+      grid-column: 1 / span 4;
+      border-bottom: 3.5px solid #eff5ff;
+      margin: 0 0 2vh 0;
+      font-size: 3em;
+      align-self: center; }
+    .downloadPage p {
+      grid-column: 1 / span 2;
+      grid-row: 2;
+      margin: 0;
+      height: auto;
+      padding: 15px;
+      font-size: 1em;
+      text-align: left;
+      align-self: center;
+      border-bottom: 0.5px solid #eff5ff; }
+    .downloadPage .banner {
+      object-fit: cover;
+      height: 100%;
+      grid-column: 3 / span 2; }
+    .downloadPage .banner-secondary {
+      height: 100%;
+      width: 100%;
+      visibility: visible;
+      grid-column: 3 / span 2;
+      grid-row: 3; }
+    .downloadPage .gameSpecs {
+      padding: 15px;
+      margin: 0;
+      font-size: 0.8em;
+      border: none;
+      grid-column: 1 / span 2;
+      grid-row: 3;
+      align-self: center;
+      border-bottom: 0.5px solid #eff5ff;
+      width: 90%; }
+      .downloadPage .gameSpecs h4 {
+        font-size: 2em;
+        margin-bottom: 2px;
+        padding: 0; }
+    .downloadPage .buttons {
+      margin: 0;
+      grid-row: 4;
+      grid-column: 1 / span 4; }
   .staff {
     grid-template-columns: 1fr 1fr 1fr 1fr; } }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
+  .nav-logo {
+    visibility: hidden; }
+  .top-nav {
+    background: none;
+    height: 0;
+    margin: 2vh; }
   .downloadPage {
-    display: grid;
-    grid-template-rows: 10px;
-    row-gap: 0;
-    grid-template-areas: "head head head" "text pic specs" "buttons buttons buttons";
     margin: 0 auto;
     width: 90%;
-    grid-template-rows: auto; }
-    .downloadPage h4 {
-      grid-area: head;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 10px; }
+    .downloadPage .header {
+      grid-row: 1;
+      grid-column: 1 / span 4;
+      border-bottom: 3.5px solid #eff5ff;
       margin: 0 0 2vh 0;
       font-size: 3em;
-      height: 70%;
-      min-height: 0; }
+      align-self: center; }
     .downloadPage p {
-      grid-area: text;
-      margin: 0; }
+      grid-column: 1 / span 2;
+      grid-row: 2;
+      margin: 0;
+      height: auto;
+      padding: 15px;
+      font-size: 1em;
+      text-align: left;
+      align-self: center;
+      border-bottom: 0.5px solid #eff5ff; }
     .downloadPage .banner {
-      grid-area: pic;
-      object-fit: contain; }
+      object-fit: cover;
+      height: 100%;
+      grid-column: 3 / span 2; }
+    .downloadPage .banner-secondary {
+      height: 100%;
+      width: 100%;
+      visibility: visible;
+      grid-column: 3 / span 2;
+      grid-row: 3; }
     .downloadPage .gameSpecs {
-      grid-area: specs;
-      padding: 0;
-      margin: 0; }
+      padding: 15px;
+      margin: 0;
+      font-size: 0.8em;
+      border: none;
+      grid-column: 1 / span 2;
+      grid-row: 3;
+      align-self: center;
+      border-bottom: 0.5px solid #eff5ff;
+      width: 90%; }
       .downloadPage .gameSpecs h4 {
-        grid-area: fish;
-        font-size: 1em;
-        margin: 0;
+        font-size: 2em;
+        margin-bottom: 2px;
         padding: 0; }
     .downloadPage .buttons {
-      grid-area: buttons; }
+      margin: 0;
+      grid-row: 4;
+      grid-column: 1 / span 4; }
   .staff {
     grid-template-columns: 1fr 1fr 1fr; } }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 501px) {
+  .nav-logo {
+    visibility: hidden;
+    height: 0;
+    background: white; }
+  .top-nav {
+    background: white;
+    height: 0;
+    margin: 2vh; }
+  .about {
+    width: 100%; }
+    .about .heading h1 {
+      font-size: 400%; }
+    .about .screenshots {
+      display: block; }
+      .about .screenshots .item {
+        display: grid;
+        column-gap: 20px;
+        grid-template-areas: "head pic" "text pic"; }
+        .about .screenshots .item img {
+          grid-area: pic; }
+        .about .screenshots .item h3 {
+          grid-area: head; }
+        .about .screenshots .item p {
+          grid-area: text; }
   .staff {
     grid-template-columns: 1fr 1fr; } }
 
@@ -391,14 +507,18 @@ SMALL: Phone size
   .about {
     display: grid;
     grid-template-areas: "branding" "head" "screen";
-    padding: 0;
+    padding: 10px;
     margin: 0;
     width: 100%; }
+    .about .heading h1 {
+      font-size: 4rem; }
     .about #main {
       margin: 0;
       width: 100%; }
     .about .screenshots {
       grid-template-columns: 1fr; }
+  .downloadPage .top-nav {
+    margin-bottom: 0; }
   .staff {
     grid-template-columns: 1fr;
     width: 100%; }
