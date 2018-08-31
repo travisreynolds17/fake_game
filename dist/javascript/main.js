@@ -126,3 +126,30 @@ function toggleBio() {
     this.innerHTML = "...";
   }
 } // end of toggleBio
+
+/*888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
+88888888888888888888888888888888888888888888888888888888888888888888888888
+CONTACT PAGE
+88888888888888888888888888888888888888888888888888888888888888888888888888
+888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
+const contTwitter = document.querySelector(".twitter");
+const contFacebook = document.querySelector(".facebook");
+const contInstagram = document.querySelector(".instagram");
+const contBody = document.querySelector(".bg-img");
+
+// add event listeners
+
+contTwitter.addEventListener("click", twitClick);
+contFacebook.addEventListener("click", faceClick);
+
+// functions
+
+function twitClick() {
+  var amount = 0.2;
+  var current = contBody.style.opacity - amount;
+
+  contBody.style.opacity = current;
+}
+
+function faceClick() {}
