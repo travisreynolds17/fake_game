@@ -138,6 +138,10 @@ const contFacebook = document.querySelector(".facebook");
 const contInstagram = document.querySelector(".instagram");
 const contBody = document.querySelector(".bg-img");
 
+let showTwit = false;
+let showFace = false;
+let showInsta = false;
+
 // add event listeners
 
 contTwitter.addEventListener("click", twitClick);
@@ -146,10 +150,13 @@ contFacebook.addEventListener("click", faceClick);
 // functions
 
 function twitClick() {
-  var amount = 0.2;
-  var current = contBody.style.opacity - amount;
-
-  contBody.style.opacity = current;
+  if (!showTwit) {
+    contTwitter.classList.add("show");
+    showTwit = true;
+  } else {
+    contTwitter.classList.remove("show");
+    showTwit = false;
+  }
 }
 
 function faceClick() {}

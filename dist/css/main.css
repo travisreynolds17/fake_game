@@ -3,6 +3,14 @@
 
 *------------------------------------------------------------
 ------------------------------------------------------------*/
+@keyframes fall {
+  10% {
+    transform: translateY(3vh); }
+  30% {
+    transform: translateY(5vh); }
+  to {
+    transform: translateY(150vh); } }
+
 .nav-button {
   position: absolute;
   top: 20px;
@@ -264,6 +272,24 @@ About Page
 Contact Page
 *------------------------------------------------------------
 ------------------------------------------------------------*/
+.contact .item {
+  transition: all 0.5s ease-out;
+  background: gray;
+  border: 2px solid #636363;
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 1.2em; }
+  .contact .item .cat {
+    text-transform: uppercase;
+    font-weight: 900; }
+  .contact .item:hover {
+    transform: scale(1.2); }
+  .contact .item.twitter.show {
+    transition: all 0.5s ease-out;
+    animation: fall 3s 1;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); }
+
 /* ----------------------------------------------------------
 -------------------------------------------------------------
 Download Page
