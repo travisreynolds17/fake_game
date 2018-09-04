@@ -132,6 +132,8 @@ main {
   min-height: 95vh;
   width: 95%;
   margin: 0; }
+  main .main {
+    margin: 0; }
 
 h1 {
   margin: 3vh 0; }
@@ -166,13 +168,17 @@ header {
 .nav-logo {
   visibility: visible; }
 
+input[type="textarea"] {
+  white-space: pre-wrap; }
+
 /* ----------------------------------------------------------
 -------------------------------------------------------------
 Landing Page
 *------------------------------------------------------------
 ------------------------------------------------------------*/
 #main {
-  transition: all 0.5s ease-out; }
+  transition: all 0.5s ease-out;
+  margin: 0; }
   #main .landing {
     text-align: center; }
     #main .landing h1 {
@@ -272,23 +278,59 @@ About Page
 Contact Page
 *------------------------------------------------------------
 ------------------------------------------------------------*/
-.contact .item {
-  transition: all 0.5s ease-out;
-  background: gray;
-  border: 2px solid #636363;
-  width: 80%;
-  margin: 10px auto;
+.contact {
+  display: grid;
+  background: cadetblue;
+  grid-gap: 20px;
+  width: 95%;
   padding: 10px;
-  font-size: 1.2em; }
-  .contact .item .cat {
-    text-transform: uppercase;
-    font-weight: 900; }
-  .contact .item:hover {
-    transform: scale(1.2); }
-  .contact .item.twitter.show {
+  margin: 0 auto; }
+  .contact .item {
     transition: all 0.5s ease-out;
-    animation: fall 3s 1;
-    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); }
+    background: gray;
+    border: 2px solid #636363;
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1.2em; }
+    .contact .item .cat {
+      text-transform: uppercase;
+      font-weight: 900; }
+    .contact .item:hover {
+      transform: scale(1.2); }
+    .contact .item.twitter.show {
+      transition: all 0.5s ease-out;
+      animation: fall 3s 1;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .contact .faq-panel {
+    grid-area: faq;
+    padding: 10px; }
+    .contact .faq-panel .faq {
+      border-bottom: 2px solid black;
+      margin-top: 2px;
+      padding: 3px; }
+  .contact .form {
+    grid-area: form; }
+    .contact .form label {
+      display: block;
+      background: black;
+      color: #d7a6e4;
+      padding: 5px;
+      margin: 5px auto; }
+    .contact .form input {
+      display: block;
+      box-shadow: 1px 1px 1px black;
+      line-height: 2em;
+      padding: 5px;
+      width: 100%;
+      margin-bottom: 5px;
+      white-space: pre-wrap; }
+    .contact .form #message {
+      width: 100%;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      height: 6em;
+      white-space: pre-line; }
 
 /* ----------------------------------------------------------
 -------------------------------------------------------------
@@ -419,6 +461,8 @@ Staff Page
       margin: 0;
       grid-row: 4;
       grid-column: 1 / span 4; }
+  .contact {
+    grid-template-areas: "form faq" "buttons faq"; }
   .staff {
     grid-template-columns: 1fr 1fr 1fr 1fr; } }
 
