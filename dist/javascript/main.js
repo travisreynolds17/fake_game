@@ -138,16 +138,46 @@ const contFacebook = document.querySelector(".facebook");
 const contInstagram = document.querySelector(".instagram");
 const contBody = document.querySelector(".bg-img");
 
+const faqTopic = document.querySelectorAll(".faq-topic");
+const faqAnswer = document.querySelectorAll(".faq-answer");
+
 let showTwit = false;
 let showFace = false;
 let showInsta = false;
+let idAttached = false;
 
 // add event listeners
 
 contTwitter.addEventListener("click", twitClick);
 contFacebook.addEventListener("click", faceClick);
 
+faqTopic.forEach(item => item.addEventListener("click", toggleAnswer));
+
 // functions
+function attachAnswerId() {
+  for (var i = 0; i < faqTopic.length; i++) {
+    faqTopic[i].id = i.toString();
+    faqAnswer[i].id = "a" + i.toString();
+    faqTopic[i].visible = false;
+  }
+}
+function toggleAnswer() {
+  if (!idAttached) {
+    attachAnswerId();
+  }
+  var topicId = this.id;
+  var answerId = "a" + topicId.toString();
+
+  if (!this.visible) {
+    this.visible = true;
+    faqAnswer[answerId].classList.add("show");
+    faqTopic[this.id].classList.add("show");
+  } else {
+    this.visible = false;
+    faqAnswer[answerId].classList.remove("show");
+    faqTopic[answerId].classList.remove("show");
+  }
+}
 
 function twitClick() {
   if (!showTwit) {
