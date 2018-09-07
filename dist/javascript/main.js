@@ -158,7 +158,9 @@ function attachAnswerId() {
   for (var i = 0; i < faqTopic.length; i++) {
     faqTopic[i].id = i.toString();
     faqAnswer[i].id = "a" + i.toString();
+    console.log(faqAnswer[i].id);
     faqTopic[i].visible = false;
+    idAttached = true;
   }
 }
 function toggleAnswer() {
@@ -166,16 +168,15 @@ function toggleAnswer() {
     attachAnswerId();
   }
   var topicId = this.id;
-  var answerId = "a" + topicId.toString();
 
   if (!this.visible) {
     this.visible = true;
-    faqAnswer[answerId].classList.add("show");
+    faqAnswer[topicId].classList.add("show");
     faqTopic[this.id].classList.add("show");
   } else {
     this.visible = false;
-    faqAnswer[answerId].classList.remove("show");
-    faqTopic[answerId].classList.remove("show");
+    faqAnswer[topicId].classList.remove("show");
+    faqTopic[this.id].classList.remove("show");
   }
 }
 

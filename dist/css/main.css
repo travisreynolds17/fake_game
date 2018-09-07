@@ -305,10 +305,23 @@ Contact Page
   .contact .faq-panel {
     grid-area: faq;
     padding: 10px; }
-    .contact .faq-panel .faq {
+    .contact .faq-panel .faq-topic {
       border-bottom: 2px solid black;
       margin-top: 2px;
-      padding: 3px; }
+      padding: 3px;
+      height: 100%;
+      color: blue; }
+      .contact .faq-panel .faq-topic.show {
+        color: red; }
+    .contact .faq-panel .faq-answer {
+      visibility: hidden;
+      transform: scale(0);
+      transition: all 0.5s ease-out;
+      height: 0; }
+      .contact .faq-panel .faq-answer.show {
+        visibility: visible;
+        height: 100%;
+        transform: scale(1); }
   .contact .form {
     grid-area: form; }
     .contact .form label {
