@@ -158,7 +158,7 @@ function attachAnswerId() {
   for (var i = 0; i < faqTopic.length; i++) {
     faqTopic[i].id = i.toString();
     faqAnswer[i].id = "a" + i.toString();
-    console.log(faqAnswer[i].id);
+    
     faqTopic[i].visible = false;
     idAttached = true;
   }
